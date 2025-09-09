@@ -14,7 +14,7 @@ function App() {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:5000/api/books?page=${page}&search=${search}`
+          `https://book-app-2gdd.onrender.com/api/books?page=${page}&search=${search}`
         );
         setBooks(res.data.results || []);
       } catch (error) {
@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     const fetchTopBooks = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/books?page=1`);
+        const res = await axios.get(`https://book-app-2gdd.onrender.com/api/books?page=1`);
         const sorted = [...res.data.results]
           .sort((a, b) => b.download_count - a.download_count)
           .slice(0, 10);
